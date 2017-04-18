@@ -1,3 +1,6 @@
+const { expect } = require('chai');
+
+
 // Testing FRAMEWORK
 function expectToBe(actualValue, expectedValue) {
   if (actualValue === expectedValue) {
@@ -7,7 +10,7 @@ function expectToBe(actualValue, expectedValue) {
   }
 }
 
-// IMPLEMENTATIOn
+// IMPLEMENTATIOns
 var index = require('./index');
 var convertNumberToEnglishString = index.convertNumberToEnglishString;
 
@@ -32,3 +35,9 @@ console.log(expectToBe(ten, 'ten'));
 
 var thirty = convertNumberToEnglishString(30);
 console.log(expectToBe(thirty, 'thirty'));
+
+describe('BottleOfBeer', function () {
+  it('it should return fiftyfive when the value 55 is passed', function (){
+    expect(convertNumberToEnglishString(55)).to.equal('fiftyfive')
+  })
+});
