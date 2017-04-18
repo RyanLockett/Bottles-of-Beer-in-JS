@@ -14,123 +14,106 @@ function main() {
 }
 
 function convertNumberToEnglishString(n) {
+  const ones = n % 10;
+  const tens = (n-ones) / 10;
 
-  var ones = n % 10;
-  var tens = (n-ones) / 10;
-  var word = '';
+  if (!tens && !ones) {
+    return 'no';
+  } else if (!tens) {
+   return switchStatementForOnes(ones);
+ } else if (tens === 1) {
+    return switchStatementForTeens(ones);
+  } else if (tens > 1) {
+    return switchStatementForTens(tens) + switchStatementForOnes(ones);
+  }
+}
 
-  if (tens === 0 && ones >= 0) {
-    switch (ones) {
-      case 0:
-        word += 'zero';
-        break;
-      case 1:
-        word += 'one';
-        break;
-      case 2:
-        word += 'two';
-        break;
-      case 3:
-        word += 'three';
-        break;
-      case 4:
-        word += 'four';
-        break;
-      case 5:
-        word += 'five';
-        break;
-      case 6:
-        word += 'six';
-        break;
-      case 7:
-        word += 'seven';
-        break;
-      case 8:
-        word += 'eight';
-        break;
-      case 9:
-        word += 'nine';
-        break;
-    }
+function switchStatementForTens(tens) {
+  switch (tens) {
+    case 2:
+      return 'twenty';
+    case 3:
+      return 'thirty';
+    case 4:
+      return 'fourty';
+    case 5:
+      return 'fifty';
+    case 6:
+      return 'sixty';
+    case 7:
+      return 'seventy';
+    case 8:
+      return 'eighty';
+    case 9:
+      return 'ninety';
   }
 
-   if (tens === 1 && ones >= 0) {
-    let word = '';
+  return '';
+}
 
-    switch (ones) {
-      case 0:
-        return 'ten';
-        break;
-      case 1:
-        return 'eleven';
-        break;
-      case 2:
-        return 'twelve';
-        break;
-      case 3:
-        word = 'thir';
-        break;
-      case 4:
-        word = 'four';
-        break;
-      case 5:
-        word = 'fif';
-        break;
-      case 6:
-        word = 'six';
-        break;
-      case 7:
-        word = 'seven';
-        break;
-      case 8:
-        word = 'eight';
-        break;
-      case 9:
-        word = 'nine';
-        break;s
-    }
-
-    return word + 'teen';
+function switchStatementForOnes(ones) {
+  switch (ones) {
+    case 1:
+      return 'one';
+    case 2:
+      return 'two';
+    case 3:
+      return 'three';
+    case 4:
+      return 'four';
+    case 5:
+      return 'five';
+    case 6:
+      return 'six';
+    case 7:
+      return 'seven';
+    case 8:
+      return 'eight';
+    case 9:
+      return 'nine';
   }
 
-  if (tens > 1 && ones === 0) {
-    switch (tens) {
-      case 2:
-        word = 'twenty';
-        break;
-      case 3:
-        word = 'thirty';
-        break;
-      case 4:
-        word = 'fourty';
-        break;
-      case 5:
-        word = 'fifty';
-        break;
-      case 6:
-        word = 'sixty';
-        break;
-      case 7:
-        word = 'seventy';
-        break;
-      case 8:
-        word = 'eighty';
-        break;
-      case 9:
-        word = 'ninety';
-        break;
-    }
-  }
+  return '';
+}
 
-  if (tens > 1 && ones > 0) {
-  word += convertNumberToEnglishString (tens * 10);
-  word +=convertNumberToEnglishString (ones);
-  }
+function switchStatementForTeens(ones) {
+  var word;
 
-  return word;
+  switch (ones) {
+    case 0:
+      return 'ten';
+      break;
+    case 1:
+      return 'eleven';
+      break;
+    case 2:
+      return 'twelve';
+      break;
+    case 3:
+      word = 'thir';
+      break;
+    case 4:
+      word = 'four';
+      break;
+    case 5:
+      word = 'fif';
+      break;
+    case 6:
+      word = 'six';
+      break;
+    case 7:
+      word = 'seven';
+      break;
+    case 8:
+      word = 'eight';
+      break;
+    case 9:
+      word = 'nine';
+      break;
+  }
+  return word + 'teen';
 }
 main();
-
 module.exports = {
-  convertNumberToEnglishString: convertNumberToEnglishString
+convertNumberToEnglishString: convertNumberToEnglishString
 }
