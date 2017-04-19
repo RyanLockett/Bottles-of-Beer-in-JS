@@ -1,4 +1,6 @@
-const { expect } = require('chai');
+const {
+  expect
+} = require('chai');
 
 
 // Testing FRAMEWORK
@@ -19,32 +21,41 @@ var convertNumberToEnglishString = index.convertNumberToEnglishString;
 var fiftyFiveString = convertNumberToEnglishString(55);
 console.log(expectToBe(fiftyFiveString, 'fiftyfive'));
 
-describe('BottleOfBeer', function () {
-  it('it should return fiftyfive when the value 55 is passed', function (){
-    expect(convertNumberToEnglishString(55)).to.equal('fiftyfive')
-  })
-  it('it should return thirty when the value 30 is passed', function (){
-    expect(convertNumberToEnglishString(30)).to.equal('thirty')
-  })
-  it('it should return no when the value 0 is passed', function (){
+describe('BottleOfBeer', function() {
+  it('it should return no when the value 0 is passed', function() {
     expect(convertNumberToEnglishString(0)).to.equal('no')
   })
-it('it should return seven when the value 7 is passed', function (){
-  expect(convertNumberToEnglishString(7)).to.equal('seven')
-})
-it('it should return twelve when the value 12 is passed', function (){
-  expect(convertNumberToEnglishString(12)).to.equal('twelve')
-})
-it('it should return nineteen when the value 19 is passed', function (){
-  expect(convertNumberToEnglishString(19)).to.equal('nineteen')
-})
-it('it should return ten when the value 10 is passed', function (){
-  expect(convertNumberToEnglishString(10)).to.equal('ten')
-})
-it('it should return twenty when the value 20 is passed', function (){
-  expect(convertNumberToEnglishString(20)).to.equal('twenty')
-})
-it('it should return ninetynine when the value 99 is passed', function (){
-  expect(convertNumberToEnglishString(99)).to.equal('ninetynine')
-})
+  it('it should return ten when the value 10 is passed', function() {
+    expect(convertNumberToEnglishString(10)).to.equal('ten')
+  })
+  it('it should return twelve when the value 12 is passed', function() {
+    expect(convertNumberToEnglishString(12)).to.equal('twelve')
+  })
+  it('it should return twenty when the value 20 is passed', function() {
+    expect(convertNumberToEnglishString(20)).to.equal('twenty')
+  })
+  it('it should return ninetynine when the value 99 is passed', function() {
+    expect(convertNumberToEnglishString(99)).to.equal('ninety nine')
+  })
+  it('it should return nine hundred ninety-nine when the value 999 is passed', function() {
+    expect(convertNumberToEnglishString(999)).to.equal('nine hundred ninety nine')
+  })
+  it('it should return four hundred and twenty when the value 420 is passed', function() {
+    expect(convertNumberToEnglishString(420)).to.equal('four hundred twenty')
+  })
+  it('it should return one hundred when the value 100 is passed', function() {
+    expect(convertNumberToEnglishString(100)).to.equal('one hundred')
+  })
+  it('it should return nine thousand nine hundred ninty nine when the value 9999 is passed', function() {
+    expect(convertNumberToEnglishString(9999)).to.equal('nine thousand nine hundred ninety nine')
+  })
+  it('it should return nine thousand nine hundred ninty nine when the value 9999 is passed', function() {
+    expect(convertNumberToEnglishString(9999)).to.equal('nine thousand nine hundred ninety nine')
+  })
+  it('it should return five thousand five hundered fifty five is passed', function() {
+    expect(convertNumberToEnglishString(5555)).to.equal('five thousand five hundred fifty five')
+  })
+  it('it should return two thousand is passed', function() {
+    expect(convertNumberToEnglishString(2000)).to.equal('two thousand')
+  })
 });
